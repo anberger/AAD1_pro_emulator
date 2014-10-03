@@ -10,7 +10,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        //play you yes not or i bottle you one
+        //fuck you michi not askjdöfkjas
+        //alsjdöfljasd
         //so a schas
         
     }
