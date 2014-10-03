@@ -11,8 +11,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         
         //fuck you michi not
+        //play you yes not or i bottle you one
         
         // and also others
+        //play you yes not or i bottle you one
         
     }
 }
