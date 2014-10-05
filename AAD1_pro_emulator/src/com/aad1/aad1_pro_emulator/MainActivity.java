@@ -10,12 +10,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        //finally it works, fucking bitches
-        //testing motherfucker
-        //Andi likes german girls
-        //Yeeeeeeeeah man
-        //Everyone Does
-        //Andi likes sleeping ;)
-        //YOUYOU LA FRANCE
+        // START CODING MOTHERFUCKERS
     }
 }
