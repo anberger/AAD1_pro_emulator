@@ -28,24 +28,37 @@ import android.widget.TextView;
 
 public class ClientActivity extends Activity {
 	 
-    private EditText serverIp;
+    private EditText Message2Send;
     private Button connectPhones;
     private Boolean connected = false;
-
+    ClientThread client = null;
     TextView getMsg = null;
+    String sendstate = "";
+    TextView txtsendstate;
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client);
  
-        serverIp = (EditText) findViewById(R.id.server_ip);
+        Message2Send = (EditText) findViewById(R.id.etMsg);
         connectPhones = (Button) findViewById(R.id.connect_phones);
         connectPhones.setOnClickListener(connectListener);
         getMsg = (TextView) findViewById(R.id.tvGet);
         getMsg.setText("fuck you");
+        txtsendstate = (TextView) findViewById(R.id.tvSendState);
         
-        LocalBroadcastManager.getInstance(this).registerReceiver(updateGUI, new IntentFilter("message"));
+        
+        if (savedInstanceState==null) {
+        
+        	LocalBroadcastManager.getInstance(this).registerReceiver(updateGUI, new IntentFilter("message"));
+    	
+        	client = new ClientThread();
+        	client.setIp("192.168.1.11");
+        	Thread cThread = new Thread(client);
+        
+        	cThread.start();
+    	}
     }
     
     private BroadcastReceiver updateGUI = new BroadcastReceiver(){
@@ -62,18 +75,10 @@ public class ClientActivity extends Activity {
     };
  
     private OnClickListener connectListener = new OnClickListener() {
- 
         @Override
         public void onClick(View v) {
-            if (!connected) {
-            	ClientThread client = new ClientThread();
-            	client.setIp("192.168.1.11");
-            	Log.d("IP",client.getIp());
-                Thread cThread = new Thread(client);
-                
-                cThread.start();
-                connected = true;
-            }
+        	//sendstate = client.Send2Server(getText(R.id.etMsg).toString());
+        	txtsendstate.setText(sendstate);
         }
     };   
 }

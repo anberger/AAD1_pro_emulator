@@ -5,7 +5,7 @@
     android:orientation="vertical" >
 
     <EditText
-        android:id="@+id/server_ip"
+        android:id="@+id/etMsg"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="Type a message" >
@@ -24,5 +24,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="No Received Message" />
+
+    <TextView
+        android:id="@+id/tvSendState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send State" />
 
 </LinearLayout>
