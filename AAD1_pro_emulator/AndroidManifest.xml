@@ -6,13 +6,10 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
+        android:targetSdkVersion="21" />
 
-    <uses-permission android:name="android.permission.INTERNET" >
-    </uses-permission>
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
-    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" /> 
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>s
 
     <application
         android:allowBackup="true"
@@ -20,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.javacodegeeks.android.androidsocketclient.Client"
+            android:name="com.aad1.aad1_pro_emulator.ClientActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

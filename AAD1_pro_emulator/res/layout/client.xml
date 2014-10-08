@@ -5,14 +5,14 @@
     android:orientation="vertical" >
 
     <EditText
-        android:id="@+id/EditText01"
+        android:id="@+id/server_ip"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="Type a message" >
     </EditText>
 
     <Button
-        android:id="@+id/myButton"
+        android:id="@+id/connect_phones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClick"
