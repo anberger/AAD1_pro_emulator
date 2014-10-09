@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+  
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="IP address:" />
+
+    <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="100">
+    
+	    <AutoCompleteTextView
+	        android:id="@+id/etIPaddress"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="30"
+	        android:textSize="18sp"
+	        android:ems="10"
+	        android:inputType="number"
+	        android:digits="01234567890."
+	        android:text="10.192.29.116"
+	        android:hint = "Type in the IP address" />
+	    
+	    <Button
+	        android:id="@+id/bClear1"
+	        android:background="@drawable/button_clear"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textSize="17sp"
+	        android:layout_weight="70"
+	        android:layout_marginLeft="10dp"
+	        android:layout_gravity="center"
+	        android:onClick="clickClear1"
+	        android:text="Clear" />
+	</LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Port:" />
+
+	<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal"
+	android:weightSum="100">
+	    
+	    <AutoCompleteTextView
+	        android:id="@+id/etPort"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="30"
+	        android:textSize="18sp"
+	        android:ems="10"
+	        android:inputType="number"
+	        android:digits="0123456789"
+	        android:text="6000"
+	        android:hint = "Type in the Port" />
+	    
+    	<Button
+	        android:id="@+id/bClear2"
+	        android:background="@drawable/button_clear"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textSize="17sp"
+	        android:layout_weight="70"
+	        android:layout_marginLeft="10dp"
+	        android:layout_gravity="center"
+	        android:onClick="clickClear2"
+	        android:text="Clear" />
+    </LinearLayout>
+    
+	<LinearLayout
+	android:layout_marginTop="25dp"
+	android:layout_width="fill_parent"
+	android:gravity="center"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal"
+	android:weightSum="100">
+
+	    <Button
+	        android:id="@+id/bEnter"
+	        android:layout_marginRight="20dp"
+	        android:background="@drawable/button_enter"
+	        android:layout_width="100dp"
+	        android:layout_height="wrap_content"
+	        android:textSize="17sp"
+	        android:layout_weight="30"
+	        android:layout_gravity="center"
+	        android:onClick="clickEnter"
+	        android:text="Enter" />
+	
+	    <Button
+	        android:id="@+id/bQuit"
+	        android:background="@drawable/button_quit"
+	        android:layout_width="100dp"
+	        android:layout_height="wrap_content"
+	        android:textSize="17sp"
+	        android:layout_weight="30"
+	        android:layout_gravity="center"
+	        android:onClick="clickQuit"
+	        android:text="Quit" />
+	</LinearLayout> 
+
+</LinearLayout>
