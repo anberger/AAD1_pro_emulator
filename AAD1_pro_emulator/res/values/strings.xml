@@ -3,5 +3,6 @@
 
     <string name="app_name">AAD1_pro_emulator</string>
     <string name="hello_world">Hello world!</string>
+    <string name="Name_startup">Server Information</string>
 
 </resources>
