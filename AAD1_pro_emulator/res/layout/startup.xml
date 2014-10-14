@@ -26,20 +26,23 @@
 	        android:ems="10"
 	        android:inputType="number"
 	        android:digits="01234567890."
-	        android:text="10.192.29.116"
+	        android:text=""
 	        android:hint = "Type in the IP address" />
 	    
-	    <Button
-	        android:id="@+id/bClear1"
+	    <ImageButton
+		    android:id="@+id/bClear1"
+	        android:layout_marginRight="10dp"
 	        android:background="@drawable/button_clear"
 	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:textSize="17sp"
+	        android:layout_height="45dp"
 	        android:layout_weight="70"
-	        android:layout_marginLeft="10dp"
 	        android:layout_gravity="center"
+	        android:layout_marginLeft="10dp"
 	        android:onClick="clickClear1"
-	        android:text="Clear" />
+	        android:src="@drawable/delete_button"
+		    android:padding="6dp"
+	        android:scaleType="fitCenter"  />
+
 	</LinearLayout>
 
     <TextView
@@ -64,20 +67,24 @@
 	        android:ems="10"
 	        android:inputType="number"
 	        android:digits="0123456789"
-	        android:text="6000"
+	        android:text=""
 	        android:hint = "Type in the Port" />
 	    
-    	<Button
+	    <ImageButton
 	        android:id="@+id/bClear2"
+	        android:layout_marginRight="10dp"
 	        android:background="@drawable/button_clear"
 	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:textSize="17sp"
+	        android:layout_height="45dp"
 	        android:layout_weight="70"
-	        android:layout_marginLeft="10dp"
 	        android:layout_gravity="center"
+	        android:layout_marginLeft="10dp"
 	        android:onClick="clickClear2"
-	        android:text="Clear" />
+		    android:src="@drawable/delete_button"
+		    android:padding="6dp"
+	        android:scaleType="fitCenter" />
+	    
+
     </LinearLayout>
     
 	<LinearLayout
@@ -87,29 +94,31 @@
 	android:layout_height="wrap_content"
 	android:orientation="horizontal"
 	android:weightSum="100">
-
-	    <Button
+    	
+    	<ImageButton
 	        android:id="@+id/bEnter"
 	        android:layout_marginRight="20dp"
 	        android:background="@drawable/button_enter"
 	        android:layout_width="100dp"
-	        android:layout_height="wrap_content"
-	        android:textSize="17sp"
+	        android:layout_height="45dp"
 	        android:layout_weight="30"
 	        android:layout_gravity="center"
 	        android:onClick="clickEnter"
-	        android:text="Enter" />
+		    android:src="@drawable/enter_button"
+		    android:padding="2dp"
+	        android:scaleType="fitCenter" />
 	
-	    <Button
+	    <ImageButton
 	        android:id="@+id/bQuit"
 	        android:background="@drawable/button_quit"
 	        android:layout_width="100dp"
-	        android:layout_height="wrap_content"
-	        android:textSize="17sp"
+	        android:layout_height="45dp"
 	        android:layout_weight="30"
 	        android:layout_gravity="center"
 	        android:onClick="clickQuit"
-	        android:text="Quit" />
-	</LinearLayout> 
+	        android:src="@drawable/quit_button"
+	        android:padding="2dp"
+	        android:scaleType="fitCenter" />
+	</LinearLayout>
 
 </LinearLayout>
