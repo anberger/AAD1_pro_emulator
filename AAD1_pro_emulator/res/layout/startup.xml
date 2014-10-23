@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
   
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:text="IP address:" />
@@ -34,12 +36,13 @@
 	        android:layout_marginRight="10dp"
 	        android:background="@drawable/button_clear"
 	        android:layout_width="fill_parent"
-	        android:layout_height="45dp"
+	        android:layout_height="40dp"
 	        android:layout_weight="70"
 	        android:layout_gravity="center"
 	        android:layout_marginLeft="10dp"
+	        android:layout_marginBottom="2dp"
 	        android:onClick="clickClear1"
-	        android:src="@drawable/delete_button"
+	        android:src="@drawable/delete_button3"
 		    android:padding="6dp"
 	        android:scaleType="fitCenter"  />
 
@@ -47,7 +50,7 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:text="Port:" />
@@ -75,12 +78,13 @@
 	        android:layout_marginRight="10dp"
 	        android:background="@drawable/button_clear"
 	        android:layout_width="fill_parent"
-	        android:layout_height="45dp"
+	        android:layout_height="40dp"
 	        android:layout_weight="70"
 	        android:layout_gravity="center"
 	        android:layout_marginLeft="10dp"
+	        android:layout_marginBottom="2dp"
 	        android:onClick="clickClear2"
-		    android:src="@drawable/delete_button"
+		    android:src="@drawable/delete_button3"
 		    android:padding="6dp"
 	        android:scaleType="fitCenter" />
 	    
@@ -104,8 +108,8 @@
 	        android:layout_weight="30"
 	        android:layout_gravity="center"
 	        android:onClick="clickEnter"
-		    android:src="@drawable/enter_button"
-		    android:padding="2dp"
+		    android:src="@drawable/enter_button4"
+		    android:padding="6dp"
 	        android:scaleType="fitCenter" />
 	
 	    <ImageButton
@@ -116,8 +120,8 @@
 	        android:layout_weight="30"
 	        android:layout_gravity="center"
 	        android:onClick="clickQuit"
-	        android:src="@drawable/quit_button"
-	        android:padding="2dp"
+	        android:src="@drawable/quit3"
+	        android:padding="6dp"
 	        android:scaleType="fitCenter" />
 	</LinearLayout>
 

@@ -82,48 +82,48 @@ public class ClientStartUp extends Activity {
 			startClient.putExtra("ip", ipAdresse.getText().toString());
 			startClient.putExtra("port", port.getText().toString());
 			
+			try {
+				String ip2save = ipAdresse.getText().toString();
+				String port2save = port.getText().toString();
+				
+				int i;
+				for (i=4;i>=0;i--) {
+					if (ip2save.toString().equals(previousIP[i].toString())) {
+						try {				
+							TheDatabase ex1 = new TheDatabase(this);
+							ex1.open();
+							ex1.deleteEntry(previousIP[i]);
+							ex1.close();
+						
+						}catch (Exception e) {
+							String error = e.toString();
+							Dialog d = new Dialog(this);
+							d.setTitle("Error!");
+							TextView tv = new TextView(this);
+							tv.setText(error);
+							d.setContentView(tv);
+							d.show();
+						}
+					}
+				}
+				
+				TheDatabase entry = new TheDatabase(ClientStartUp.this);
+				entry.open();
+				entry.createEntry(ip2save, port2save);
+				entry.close();
+			}catch (Exception e) {
+				String error = e.toString();
+				Dialog d = new Dialog(this);
+				d.setTitle("Error");
+				TextView tv = new TextView(this);
+				tv.setText(error);
+				d.setContentView(tv);
+				d.show();
+			}
+			
 			startActivity(startClient);
 		} else {
 			Toast.makeText(getApplicationContext(), "Enter a valid IP and/or PORT", Toast.LENGTH_LONG).show();
-		}
-		
-		try {
-			String ip2save = ipAdresse.getText().toString();
-			String port2save = port.getText().toString();
-			
-			int i;
-			for (i=4;i>=0;i--) {
-				if (ip2save.toString().equals(previousIP[i].toString())) {
-					try {				
-						TheDatabase ex1 = new TheDatabase(this);
-						ex1.open();
-						ex1.deleteEntry(previousIP[i]);
-						ex1.close();
-					
-					}catch (Exception e) {
-						String error = e.toString();
-						Dialog d = new Dialog(this);
-						d.setTitle("Error!");
-						TextView tv = new TextView(this);
-						tv.setText(error);
-						d.setContentView(tv);
-						d.show();
-					}
-				}
-			}
-			
-			TheDatabase entry = new TheDatabase(ClientStartUp.this);
-			entry.open();
-			entry.createEntry(ip2save, port2save);
-			entry.close();
-		}catch (Exception e) {
-			String error = e.toString();
-			Dialog d = new Dialog(this);
-			d.setTitle("Error");
-			TextView tv = new TextView(this);
-			tv.setText(error);
-			d.setContentView(tv);
-			d.show();
 		}
 	}
 	
