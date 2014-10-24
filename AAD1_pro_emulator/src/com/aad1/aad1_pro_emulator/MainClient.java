@@ -222,7 +222,6 @@ public class MainClient extends FragmentActivity /*implements FragmentAnimation.
         @Override
         public void run() {
             try {
-            	Looper.prepare();
                 InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
                 SOCK = new Socket(serverAddr, SERVERPORT);
                 
@@ -261,7 +260,6 @@ public class MainClient extends FragmentActivity /*implements FragmentAnimation.
 
             } catch (Exception e1) {
                 e1.printStackTrace();
-                Looper.myLooper().quit();
                 Send2Activity(helper.packageBuilder("dei", "ondere ip", "Error", "failed to Connect"));
                 Log.d("Client","error" + e1.toString());
             } finally {
@@ -270,7 +268,6 @@ public class MainClient extends FragmentActivity /*implements FragmentAnimation.
             	SOCK = null;
             	outputStream = null;
             	inputStream = null;
-            	Looper.myLooper().quit();
         		spinner = true;
         		updateStatus();
             }

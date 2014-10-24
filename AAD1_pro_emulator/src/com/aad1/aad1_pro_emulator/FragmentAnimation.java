@@ -72,7 +72,8 @@ public class FragmentAnimation extends Fragment {
 			ImageForward.setVisibility(View.VISIBLE);
 			ImageForwardFrame.setVisibility(View.VISIBLE);
 			ImageForwardCover.setVisibility(View.VISIBLE);
-			ImageForwardCover.animate().translationY(-valS);
+			ImageForwardCover.setTranslationY(-valS);
+			//ImageForwardCover.animate().translationY(-valS);
 		}else{
 			ImageForward.setVisibility(View.INVISIBLE);
 			ImageForwardFrame.setVisibility(View.INVISIBLE);
@@ -87,7 +88,8 @@ public class FragmentAnimation extends Fragment {
 			ImageRight.setVisibility(View.VISIBLE);
 			ImageRightFrame.setVisibility(View.VISIBLE);
 			ImageRightCover.setVisibility(View.VISIBLE);
-			ImageRightCover.animate().translationX(valS);
+			ImageRightCover.setTranslationX(valS);
+			//ImageRightCover.animate().translationX(valS);
 		}else{
 			ImageRight.setVisibility(View.INVISIBLE);
 			ImageRightFrame.setVisibility(View.INVISIBLE);
@@ -102,7 +104,8 @@ public class FragmentAnimation extends Fragment {
 			ImageBackward.setVisibility(View.VISIBLE);
 			ImageBackwardFrame.setVisibility(View.VISIBLE);
 			ImageBackwardCover.setVisibility(View.VISIBLE);
-			ImageBackwardCover.animate().translationY(valS);
+			ImageBackwardCover.setTranslationY(valS);
+			//ImageBackwardCover.animate().translationY(valS);
 		}else{
 			ImageBackward.setVisibility(View.INVISIBLE);
 			ImageBackwardFrame.setVisibility(View.INVISIBLE);
@@ -117,7 +120,8 @@ public class FragmentAnimation extends Fragment {
 			ImageLeft.setVisibility(View.VISIBLE);
 			ImageLeftFrame.setVisibility(View.VISIBLE);
 			ImageLeftCover.setVisibility(View.VISIBLE);
-			ImageLeftCover.animate().translationX(-valS);
+			ImageLeftCover.setTranslationX(-valS);
+			//ImageLeftCover.animate().translationX(-valS);
 		}else{
 			ImageLeft.setVisibility(View.INVISIBLE);
 			ImageLeftFrame.setVisibility(View.INVISIBLE);

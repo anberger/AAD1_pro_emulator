@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="244dp"
-    android:background="#123456"
+    android:background="#000000"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -80,7 +80,7 @@
 	        android:id="@+id/iVconnected"
 	        android:layout_gravity="center_horizontal"
 	        android:visibility="invisible"
-	        android:layout_width="wrap_content"
+	        android:layout_width="50dp"
 	        android:layout_height="wrap_content"
 	        android:src="@drawable/connected" />
 	    
