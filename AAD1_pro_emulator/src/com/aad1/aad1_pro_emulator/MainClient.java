@@ -15,6 +15,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -25,10 +26,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainClient extends FragmentActivity implements FragmentAnimation.FragmentCommunicator{
+public class MainClient extends FragmentActivity /*implements FragmentAnimation.FragmentCommunicator*/{
 	
 	ImageView ImageRight;
 	private static ClientThread mClientThread;   
@@ -40,6 +42,8 @@ public class MainClient extends FragmentActivity implements FragmentAnimation.Fr
     //EditText message;
     TextView deliver;
     boolean connected = false;
+    
+    boolean spinner = true;
     
     @SuppressLint("HandlerLeak") 
     public Handler mhandlerClient = new Handler(){   //handles the INcoming msgs 
@@ -60,11 +64,11 @@ public class MainClient extends FragmentActivity implements FragmentAnimation.Fr
     	if(parsed.type.equals("carvalues")){
     		long values = Long.parseLong(parsed.message);
     		
-    		val[3] = (values % 1000)*100;
+    		val[3] = (values % 1000);
     		values = values / 1000;
-    		val[2] = (values % 1000)*100;
+    		val[2] = (values % 1000);
     		values = values / 1000;
-    		val[1] = (values % 1000)*100;
+    		val[1] = (values % 1000);
     		values = values / 1000;
     		val[0] = values;
 
@@ -83,12 +87,12 @@ public class MainClient extends FragmentActivity implements FragmentAnimation.Fr
         setContentView(R.layout.frame_layout);
         
         replaceAnimation();
-        
-        if (findViewById(R.id.flControl) != null) {
-            FragmentClient frag = new FragmentClient();
-            getSupportFragmentManager().beginTransaction().replace(R.id.flControl, frag).commit();
-        }
-        
+        updateStatus();
+//        if (findViewById(R.id.flControl) != null) {
+//            FragmentClient frag = new FragmentClient();
+//            getSupportFragmentManager().beginTransaction().replace(R.id.flControl, frag).commit();
+//        }
+//        
         //message = (EditText) findViewById(R.id.etMsg);
         //deliver = (TextView) findViewById(R.id.tvDelivery);
         
@@ -122,6 +126,16 @@ public class MainClient extends FragmentActivity implements FragmentAnimation.Fr
             getSupportFragmentManager().beginTransaction().replace(R.id.flAnimation, frag).commit();
         }
     }
+    
+    public void updateStatus(){
+    	if (findViewById(R.id.flControl) != null) {
+    		FragmentClient frag2 = new FragmentClient();
+    		Bundle bundleC = new Bundle();
+    		bundleC.putBoolean("spinner", spinner);
+    		frag2.setArguments(bundleC);
+    		getSupportFragmentManager().beginTransaction().replace(R.id.flControl, frag2).commit();
+    	}
+    }
 
 	public void disconnect(View v) {
     	//Toast.makeText(getApplicationContext(), "disconnect", Toast.LENGTH_SHORT).show();
@@ -139,6 +153,25 @@ public class MainClient extends FragmentActivity implements FragmentAnimation.Fr
     		mClientThread.start();
     	}
     }
+	
+	public void QuitAll (View v) {
+    	if (connected == true) {
+			mClientThread.cancel();
+    	}
+    	finish();
+    	
+    	Intent i = new Intent(MainClient.this, ClientStartUp.class);
+    	i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    	i.putExtra("EXIT", true);
+    	startActivity(i);
+	}
+	
+	public void ChangeIpPort (View v) {
+    	if (connected == true) {
+			mClientThread.cancel();
+    	}
+    	finish();
+	}
 
     class ClientThread extends Thread {
 
@@ -188,7 +221,6 @@ public class MainClient extends FragmentActivity implements FragmentAnimation.Fr
     	
         @Override
         public void run() {
-
             try {
             	Looper.prepare();
                 InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
@@ -196,6 +228,9 @@ public class MainClient extends FragmentActivity implements FragmentAnimation.Fr
                 
                 if (SOCK != null) {
                 	if(SOCK.isConnected()){
+                		
+                		spinner = false;
+                		updateStatus();
                 	
 	                	outputStream = new BufferedOutputStream(SOCK.getOutputStream());
 	        			inputStream = new BufferedInputStream(SOCK.getInputStream());
@@ -236,14 +271,16 @@ public class MainClient extends FragmentActivity implements FragmentAnimation.Fr
             	outputStream = null;
             	inputStream = null;
             	Looper.myLooper().quit();
+        		spinner = true;
+        		updateStatus();
             }
         }
     }
 
-	@Override
-	public void rightON() {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void rightON() {
+//		// TODO Auto-generated method stub
+//		
+//	}
 }
 

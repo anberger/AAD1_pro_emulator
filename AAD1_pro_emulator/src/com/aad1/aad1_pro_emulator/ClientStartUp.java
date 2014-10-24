@@ -65,6 +65,11 @@ public class ClientStartUp extends Activity {
 				}
 			}
         });
+    	
+    	if (getIntent().getBooleanExtra("EXIT", false)) 
+    	{
+    	        finish();
+    	}
 	}
 	
 	@Override
