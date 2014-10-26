@@ -39,7 +39,6 @@ public class FragmentClient extends Fragment {
 				connectionStatusText.setText("Awaiting Connection");
 			}
 		}
-		
 	return view;
 	}
 }

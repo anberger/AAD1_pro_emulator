@@ -1,17 +1,14 @@
 package com.aad1.aad1_pro_emulator;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class FragmentAnimation extends Fragment {
 	
-//	public FragmentCommunicator frag;
 	ImageView ImageForward, ImageForwardFrame, ImageForwardCover;
 	ImageView ImageRight, ImageRightFrame, ImageRightCover;
 	ImageView ImageBackward, ImageBackwardFrame, ImageBackwardCover;
@@ -66,14 +63,14 @@ public class FragmentAnimation extends Fragment {
 		return view;
 	}
 	
+	//Handles the direction (forwards)
 	public void direction_forwards(Boolean bool, long valS){
 		if (bool) {
-			valS = (long) (valS * 1.7);
+			valS = (long) (valS * 1.9);
 			ImageForward.setVisibility(View.VISIBLE);
 			ImageForwardFrame.setVisibility(View.VISIBLE);
 			ImageForwardCover.setVisibility(View.VISIBLE);
 			ImageForwardCover.setTranslationY(-valS);
-			//ImageForwardCover.animate().translationY(-valS);
 		}else{
 			ImageForward.setVisibility(View.INVISIBLE);
 			ImageForwardFrame.setVisibility(View.INVISIBLE);
@@ -82,14 +79,14 @@ public class FragmentAnimation extends Fragment {
 		}
 	}	
 	
+	//Handles the direction (right)
 	public void direction_right(Boolean bool, long valS){
 		if (bool) {
-			valS = (long) (valS * 1.7);
+			valS = (long) (valS * 1.9);
 			ImageRight.setVisibility(View.VISIBLE);
 			ImageRightFrame.setVisibility(View.VISIBLE);
 			ImageRightCover.setVisibility(View.VISIBLE);
 			ImageRightCover.setTranslationX(valS);
-			//ImageRightCover.animate().translationX(valS);
 		}else{
 			ImageRight.setVisibility(View.INVISIBLE);
 			ImageRightFrame.setVisibility(View.INVISIBLE);
@@ -98,14 +95,14 @@ public class FragmentAnimation extends Fragment {
 		}
 	}
 	
+	//Handles the direction (backwards)
 	public void direction_backwards(Boolean bool, long valS){
 		if (bool) {
-			valS = (long) (valS * 1.7);
+			valS = (long) (valS * 1.9);
 			ImageBackward.setVisibility(View.VISIBLE);
 			ImageBackwardFrame.setVisibility(View.VISIBLE);
 			ImageBackwardCover.setVisibility(View.VISIBLE);
 			ImageBackwardCover.setTranslationY(valS);
-			//ImageBackwardCover.animate().translationY(valS);
 		}else{
 			ImageBackward.setVisibility(View.INVISIBLE);
 			ImageBackwardFrame.setVisibility(View.INVISIBLE);
@@ -114,14 +111,14 @@ public class FragmentAnimation extends Fragment {
 		}
 	}
 	
+	//Handles the direction (left)
 	public void direction_left(Boolean bool, long valS){
 		if (bool) {
-			valS = (long) (valS * 1.7);
+			valS = (long) (valS * 1.9);
 			ImageLeft.setVisibility(View.VISIBLE);
 			ImageLeftFrame.setVisibility(View.VISIBLE);
 			ImageLeftCover.setVisibility(View.VISIBLE);
 			ImageLeftCover.setTranslationX(-valS);
-			//ImageLeftCover.animate().translationX(-valS);
 		}else{
 			ImageLeft.setVisibility(View.INVISIBLE);
 			ImageLeftFrame.setVisibility(View.INVISIBLE);
@@ -129,24 +126,4 @@ public class FragmentAnimation extends Fragment {
 			ImageLeftCover.setLeft(0);
 		}
 	}
-	
-//	public void rightON(){
-//		ImageForward.animate().translationX(50);
-//	}
-//	
-//	
-//	@Override
-//	public void onAttach(Activity activity) {
-//	    super.onAttach(activity);
-//	    try {
-//	    	frag = (FragmentCommunicator) activity;
-//	    } catch (ClassCastException e) {
-//	        throw new ClassCastException(activity.toString() + " must implement FragmentCommunicator");
-//	    }
-//	}
-//	
-//	// Interface to communicate with the TCP Connection Activity
-//	public interface FragmentCommunicator  {
-//		public void rightON();
-//	}	
 }

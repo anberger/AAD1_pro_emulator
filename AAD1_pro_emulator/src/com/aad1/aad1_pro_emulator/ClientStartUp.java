@@ -158,7 +158,6 @@ public class ClientStartUp extends Activity {
 			previousIP = returnedIP;
 			previousPORT = returnedPORT;
 		}catch (Exception e) {
-			String error = e.toString();
 			Dialog d = new Dialog(ClientStartUp.this);
 			d.setTitle("Error");
 			TextView tv = new TextView(ClientStartUp.this);

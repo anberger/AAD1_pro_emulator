@@ -68,6 +68,7 @@ public class TheDatabase {
 		return ourDatabase.insert(DATABASE_TABLE, null, cv);
 	}
 
+	//creates the string array for the auto complete field IP adresse
 	public String[] getIP() {
 		// TODO Auto-generated method stub
 		String [] columns = new String[]{KEY_ROWID, KEY_IP, KEY_PORT};
@@ -78,12 +79,13 @@ public class TheDatabase {
 		int i=0;
 		int k=4;
 		
+		//counts the entries
 		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-			//result[i] = c.getString(iIP);
 			i++;
 		}
+		
+		//takes the 5 last entries and puts them into the result string array
 		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-			//result[i] = c.getString(iIP);
 			if(i<=5 && i>0){
 				result[k] = c.getString(iIP);
 				k--;
@@ -93,6 +95,7 @@ public class TheDatabase {
 		return result;
 	}
 
+	//creates the string array for the auto complete field Port
 	public String[] getPORT() {
 		// TODO Auto-generated method stub
 		String [] columns = new String[]{KEY_ROWID, KEY_IP, KEY_PORT};
@@ -103,10 +106,13 @@ public class TheDatabase {
 		int i=0;
 		int k=4;
 		
+		//counts the entries
 		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
 			//result[i] = c.getString(iPORT);
 			i++;
 		}
+		
+		//takes the 5 last entries and puts them into the result string array
 		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
 			//result[i] = c.getString(iPORT);
 			if(i<=5 && i>0) {
