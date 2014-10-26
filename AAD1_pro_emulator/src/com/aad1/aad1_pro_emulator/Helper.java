@@ -33,7 +33,7 @@ public class Helper {
                     }
                 }
             }
-        } catch (Exception ex) { } // for now eat exceptions
+        } catch (Exception ex) { }
         return "";
     }
 	

@@ -108,13 +108,11 @@ public class TheDatabase {
 		
 		//counts the entries
 		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-			//result[i] = c.getString(iPORT);
 			i++;
 		}
 		
 		//takes the 5 last entries and puts them into the result string array
 		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-			//result[i] = c.getString(iPORT);
 			if(i<=5 && i>0) {
 				result[k] = c.getString(iPORT);
 				k--;
@@ -125,12 +123,14 @@ public class TheDatabase {
 		return result;
 	}
 	
+	//deletes the whole database
 	public void deleteDataBase() {
 		// TODO Auto-generated method stub
 		
 		ourContext.deleteDatabase(DATABASE_NAME);
 	}
 
+	//deletes an entry in the database (when new data with the same ip should be stored)
 	public void deleteEntry(String ip2delet) {
 		// TODO Auto-generated method stub
 		String[] whereArgs = new String[] {ip2delet};

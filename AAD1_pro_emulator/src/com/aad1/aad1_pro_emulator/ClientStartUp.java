@@ -37,6 +37,7 @@ public class ClientStartUp extends Activity {
         clearCache = (ImageButton) findViewById(R.id.bClear1);
         clearCache.setOnLongClickListener(new OnLongClickListener() {
 			
+        	//Long Click event for deleting the database
 			@Override
 			public boolean onLongClick(View v) {
 				// TODO Auto-generated method stub
@@ -50,8 +51,11 @@ public class ClientStartUp extends Activity {
 			}
 		});
         
+        
+        //on click listener for the auto complete list
     	actvIP.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+    		//searches for the port which belongs to the selected IP
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				// TODO Auto-generated method stub
@@ -66,12 +70,14 @@ public class ClientStartUp extends Activity {
 			}
         });
     	
+    	//quit the application: intent from the client ==> closes this activity
     	if (getIntent().getBooleanExtra("EXIT", false)) 
     	{
     	        finish();
     	}
 	}
 	
+	//refreshes the auto complete list on resume
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
@@ -80,6 +86,8 @@ public class ClientStartUp extends Activity {
 		refresh();
 	}
 
+	
+	//handles the storage of the IP addresses and PORTs
 	public void clickEnter(View v) {
 		
 		if (ipAdresse.getText().toString().length() != 0 && port.getText().toString().length() != 0) {
@@ -132,21 +140,26 @@ public class ClientStartUp extends Activity {
 		}
 	}
 	
+	//clears the upper text field
 	public void clickClear1(View v) {
 		
 		ipAdresse.setText("");
 	}
 	
+	//clears the lower text field
 	public void clickClear2(View v) {
 		
 		port.setText("");
 	}
 	
+	//closes activity
 	public void clickQuit(View v) {
 		
 		finish();
 	}
 	
+	//refresh method
+	//loads the current data from the database into the string arrays
 	public void refresh(){
     	try {
 			TheDatabase td = new TheDatabase(ClientStartUp.this);

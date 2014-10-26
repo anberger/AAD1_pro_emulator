@@ -27,6 +27,7 @@ public class FragmentClient extends Fragment {
 		
 		Bundle bundle = getArguments();
 	
+		//handles the state of the spinner
 		if(bundle.containsKey("spinner")){
 			spinner = bundle.getBoolean("spinner");
 			if (!spinner) {

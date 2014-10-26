@@ -134,6 +134,7 @@ public class MainClient extends FragmentActivity{
     	}
     }
 	
+	//Quites the whole application
 	public void QuitAll (View v) {
     	if (connected == true) {
 			mClientThread.cancel();
@@ -146,6 +147,7 @@ public class MainClient extends FragmentActivity{
     	startActivity(i);
 	}
 	
+	//going back to the previous activity (IP and PORT selection)
 	public void ChangeIpPort (View v) {
     	if (connected == true) {
 			mClientThread.cancel();
@@ -190,6 +192,7 @@ public class MainClient extends FragmentActivity{
     		}
     	}
     	
+    	//Disconnects the Client from the server
     	public void cancel(){
     		try {
     			Send2Server(helper.packageBuilder(Helper.getIPAddress(), SERVER_IP, "car", "offline"));
@@ -200,6 +203,8 @@ public class MainClient extends FragmentActivity{
 			}
     	}
     	
+    	//creating socket
+    	//gets input stream, sends online message to the server
         @Override
         public void run() {
             try {
